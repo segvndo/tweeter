@@ -1,0 +1,10 @@
+height: 120 px
+viewport: 100%
+backgound-color: #4056A1
+font-color: #FFFFFF
+<span> within the <nav> uses Bungee as its default font-family
+1.5ems of space on the right and left between the content and the edges
+
+nav > span {
+  font-family: Bungee;
+ }

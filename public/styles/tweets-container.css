@@ -1,0 +1,66 @@
+.useravatar {
+  height: 60px;
+  width: 60px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clientName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color:rgb(0, 67, 175)
+}
+
+.insideTweetbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-border {
+  width: 100%;
+  height: 1.5px;
+  background-color: black;
+  margin-top: 15px;
+}
+
+.new-tweet {
+  width: 100%;
+}
+
+.container {
+  width: 90%;
+}
+
+.tweetbox-container {
+  border: 2px solid #000000;
+  padding: 0.5em;
+  margin: 1em;
+}
+
+.tweetbox-container:hover {
+  box-shadow: 10px 10px 5px rgb(69, 72, 72);
+}
+
+.heart:hover {
+  color: rgb(255, 213, 0);
+}
+
+.flag:hover {
+  color: rgb(255, 213, 0);
+}
+
+.retweet:hover {
+  color: rgb(255, 213, 0);
+}
+
+.handle {
+  color:rgb(170, 200, 247)
+}
