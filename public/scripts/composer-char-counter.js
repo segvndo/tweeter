@@ -1,7 +1,7 @@
 $(document).ready(function() {
-  $('#tweet-text').on("input", function () {
+  $('#tweetText').on("input", function () {
     let counter = 140;
-    let txt = $("#tweet-text").val();
+    let txt = $("#tweetText").val();
     let txtLength = txt.length;
     console.log(txt, txtLength);
     let remainder = counter - txtLength;
@@ -11,7 +11,6 @@ $(document).ready(function() {
       $('.counter').css({"color": "red"});
     } else {
       $('.counter').css({"color": "black"});
-      // $(this).css({"color": "#00FFFF"}); 
     }
   });
 });

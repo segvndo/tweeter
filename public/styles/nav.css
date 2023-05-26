@@ -1,7 +1,7 @@
 nav {
   height: 120px;
   width: 100%;
-  background-color: #4056A1;
+  background-color: #25008a;
   color: #FFFFFF;
   padding: 1.5em;
   box-sizing: border-box;
@@ -26,10 +26,19 @@ nav .icon-wrapper i {
   margin: 0 auto;
   margin-top: 0.02em;
 }
-/* 
-body {
-  color: #000000;
-  background-color: #ffbb00;
-  font-size: 24px;
-  font-family: 'Source Sans Pro', sans-serif;
-} */
+
+@media only screen and (max-width: 1024px) {
+  nav {
+    height: 120px;
+    width: 100%;
+    color: #FFFFFF;
+    padding: 1.5em;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background-color: #25008a;
+  background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+  }
+}

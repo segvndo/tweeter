@@ -4,6 +4,8 @@
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,12 +19,14 @@
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweet-button.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweets-container.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/errorContainer.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.7/jquery.timeago.min.js%22%3E</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
     <!-- App JS -->
+
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
     <script type="text/javascript" src="/scripts/client.js"></script>
     
@@ -32,7 +36,7 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span class="logo">tweeter</span>
-      <span class="new-tweet">
+      <span class="tweetAreaBox">
         <span class="tweet-text"><strong>Write </strong>a new tweet</span>
         <span class="icon-wrapper">
           <i class="fa-solid fa-angles-down" style="color: #effb03;"></i>
@@ -40,6 +44,7 @@
       </span>
     </nav>
 
+    <div class="mainHeader">
     <header class="header-content">
         <div class="avatar">
           <img src="/images/profile-hex.png">
@@ -53,24 +58,26 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        <div id="errorContainer"></div>
         <h2>Compose Tweet</h2>
-          <form action="/tweets" method="POST" id="submit-tweet">
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about?" style="width: 100%;"></textarea>
+        <form action="/tweets" method="POST" id="submit-tweet">
+          <textarea name="text" id="tweetText" placeholder="What are you humming about?" style="width: 100%;"></textarea>
           <div>
             <button type="submit" class="btn">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
-        <article class="tweetbox-container">
-          <section class="insideTweetbox"> 
-            <div class="clientName">
-              <img class="useravatar" src="https://i.imgur.com/73hZDYK.png">
-              <span>Schubert</span>
+        <section class="tweetboxContainer">
+          <article class="insideTweetbox"> 
+            <div>
+              <div class="clientName">
+                <img class="useravatar" src="https://i.imgur.com/73hZDYK.png">
+                <span>Schubert</span>
             </div>
             <div class="handle">
               @Schubert
             </div>
-          </section>
+          </div>
             <span class="actual-tweet">
               Hello, Tweeps! 
             </span>
@@ -91,8 +98,9 @@
                 </span>
               </div>
             </footer>
-        </article>
+          </article>
       </section>
     </main>
+  </div>
   </body>
   </html>

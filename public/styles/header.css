@@ -1,5 +1,4 @@
 header {
-  /* height: 400px; */
   width: 100%;
   padding: 6.5em 0 1em 0;
   display: flex;
@@ -11,9 +10,6 @@ header {
 }
 
 .name {
-  /* display: flex;
-  justify-content: center;
-  flex-wrap: wrap; */
   text-align: center;
   color:aliceblue;
   margin-top: 1em;
@@ -21,4 +17,43 @@ header {
 
 #first-name {
   font-weight: 700;
+}
+
+.new-tweet {
+  flex-direction: column;
+}
+
+.tweetAreaBox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 200px;
+}
+
+@media only screen and (min-width: 768px) {
+  
+}
+
+@media only screen and (min-width: 1024px) {
+  main.container {
+    padding: 0 50px;
+    margin-top: 99px;
+  }
+  .mainHeader {
+    display:flex;
+    margin: 0 30px 0 50px;
+  }
+  .header-content {
+    width: 25%;
+    z-index: -1;
+    height: 670px;
+    width: 30%;
+    padding: 20%;
+	  background-size: 100%;
+    margin: 140px 30px 0 0;
+  }
+  .new-tweet {
+    display: flex;
+    flex-direction: column;
+  }
 }

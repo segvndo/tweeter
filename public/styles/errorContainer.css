@@ -1,0 +1,20 @@
+#errorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  color:rgb(255, 5, 5);
+  font-family: "Bungee", sans serif;
+}
+
+@media only screen and (min-width: 1024px) {
+  #errorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  color: rgb(255, 5, 5);
+  font-family: "Bungee", sans serif;
+  margin-top: 37px;
+  }
+}

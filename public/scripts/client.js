@@ -8,74 +8,53 @@ $(document).ready(function() {
   // Function to create a tweet element
   const createTweetElement = function(tweet) {
     const $tweet = $(`
-      <article class="tweet">
-        <header>
-          <img src="${useravatar}" alt="User Avatar">
-          <div class="header-content">
-            <div>
-              <h3 class="clientName">${clientName}</h3>
-            </div>
-            <div>
-              <span class="handle">${handle}</span>
-            </div>
-          </div>
-        </header>
-        <div class="insideTweetbox">
-          <p>${insideTweetbox}</p>
-        </div>
-        <footer>
-          // <span class="tweet-timestamp">${tweet.created_at}</span>
-          <div class="tweet-actions">
-            <i class="far fa-comment"></i>
-            <i class="fas fa-retweet"></i>
-            <i class="far fa-heart"></i>
-          </div>
-        </footer>
-      </article>
+    <article class="insideTweetbox"> 
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+    <div class="clientName">
+      <img class="useravatar" src="https://i.imgur.com/73hZDYK.png">
+      <span>${tweet.user.name}</span>
+    </div>
+    <div class="handle">
+      ${tweet.user.handle}
+    </div>
+    </div>
+    <span class="actual-tweet">
+      ${escape(tweet.content.text)} 
+    </span>
+    <div class="footer-border"></div>
+    <footer>
+      <span>
+        ${timeago.format(tweet.created_at)}
+      </span>
+      <div>
+        <span class="heart">
+          <i class="fa-solid fa-heart"></i>
+        </span>
+        <span class="retweet">
+          <i class="fa-solid fa-retweet"></i>
+        </span>
+        <span class="flag">
+          <i class="fa-solid fa-flag"></i>
+        </span>
+      </div>
+    </footer>
+</article>
     `);
+    console.log($tweet)
 
     return $tweet;
   };
 
   // Function to render multiple tweets
   const renderTweets = function(tweets) {
-    const $tweetsContainer = $('#tweets-container');
-    $tweetsContainer.empty();
+    const $tweetboxContainer = $('.tweetboxContainer');
+    $tweetboxContainer.empty();
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
-      $tweetsContainer.append($tweet);
+      $tweetboxContainer.prepend($tweet);
     }
   };
   
-  // Function to render multiple tweets
-  const renderTweets = function(tweets) {
-    const $insideTweetbox = $('.insideTweetbox');
-    $insideTweetbox.empty();
-    for (const tweet of tweets) {
-      const $tweet = createTweetElement(tweet);
-      $insideTweetbox.append($tweet);
-    }
-  };
-  
-  renderTweets(data);
-  
-  // Add event listener for form submit
-  $('form').submit(function(event) {
-    event.preventDefault();
-  
-    // Serialize the form data
-    const formData = $(this).serialize();
-  
-    // Send the AJAX POST request
-    $.post('/tweets', formData)
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  });
-
   const data = [
     {
       "user": {
@@ -86,7 +65,7 @@ $(document).ready(function() {
       "content": {
         "text": "If I have seen further it is by standing on the shoulders of giants"
       },
-      "created_at": "May 23, 2023 12:34 PM" 
+      "created_at": "May 24, 2023 12:34 PM" 
     },
     {
       "user": {
@@ -95,9 +74,72 @@ $(document).ready(function() {
         "handle": "@rd"
       },
       "content": {
-        "text": "text": "Je pense , donc je suis"
+        "text": "Je pense , donc je suis"
       },
-      "created_at": "May 23, 2023 12:30 PM" 
+      "created_at": "May 24, 2023 12:30 PM" 
     }
   ];
+
+  const $errorContainer = $("#errorContainer");
+  $errorContainer.hide();
+
+  const validation = function(tweet) {
+    if (!tweet) {
+      const errorMessage = "Error: Must compose a tweet";
+      $errorContainer.text(errorMessage);
+      $errorContainer.slideDown();
+      return false;
+    }
+   
+    if (tweet.length > 140) {
+      const errorMessage = "Error: Character exceeded";
+      $errorContainer.text(errorMessage);
+      $errorContainer.slideDown();
+      return false;
+    }
+    return true;
+  };
+
+  renderTweets(data);
+  
+  $('form').submit(function(event) {
+    event.preventDefault();
+    $errorContainer.text();
+    $errorContainer.slideUp();
+    
+    const formData = $(this).serializeArray();
+
+
+    if (validation(formData[0].value)) {
+      $.post('/tweets', formData)
+      .then(function(response) {
+        console.log(response);
+        loadTweets();
+        $(".counter").text(140);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+    }
+    $(this).trigger("reset");
+  });
+  const loadTweets = function() {
+    $.getJSON("/tweets")
+      .then(function(data) {
+        console.log(data);
+        renderTweets(data);
+      });
+  };
+  
+  loadTweets();
 });
+
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
+
+//Same as line 22
+// const safeHTML = `<p>${escape(textFromUser)}</p>`;
