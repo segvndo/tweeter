@@ -6,6 +6,7 @@ This repository is the starter code for the project: Students will fork and clon
 
 
 ##Screenshots
+
   ![Screenshot of app form web browser] (https://github.com/segvndo/tweeter/blob/master/docs/browserView.png)
   
   ![Screenshot of error shown from tweet exceeding  characters]https://github.com/segvndo/tweeter/blob/master/docs/exceedingChar.png
