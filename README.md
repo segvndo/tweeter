@@ -16,3 +16,14 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+##Screenshots
+  ![Screenshot of app form web browser] (https://github.com/segvndo/tweeter/blob/master/docs/browserView.png)
+  
+  ![Screenshot of error shown from tweet exceeding  characters]https://github.com/segvndo/tweeter/blob/master/docs/exceedingChar.png
+  
+  ![Screenshot of hovering on an icon]https://github.com/segvndo/tweeter/blob/master/docs/iconHover.png
+  
+  ![Screenshot of error shown from submitting empty tweet]https://github.com/segvndo/tweeter/blob/master/docs/noTweetError.png
+  
+  ![Screenshot of a simple tweet in mobile view]https://github.com/segvndo/tweeter/blob/master/docs/simpleTweet.png
