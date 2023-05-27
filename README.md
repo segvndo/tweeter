@@ -15,6 +15,10 @@ Getting Started:
 Dependencies:
 1. Express
 2. Node 5.10.x or above
+3. Body-parser
+4. Chance
+5. EJS
+6. md5
 
 ##Screenshots
 
