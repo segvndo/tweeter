@@ -122,8 +122,11 @@ $(document).ready(function() {
         console.log(error);
       });
     }
-    $(this).trigger("reset");
+    //Optional code below for personal use if text box is desired to be empty post-error message
+    // $(this).trigger("reset");
   });
+
+
   const loadTweets = function() {
     $.getJSON("/tweets")
       .then(function(data) {
@@ -135,6 +138,8 @@ $(document).ready(function() {
   loadTweets();
 });
 
+
+//Function that converts unsafe characters into safe encoded representation
 const escape = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
