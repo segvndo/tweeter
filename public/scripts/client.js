@@ -80,10 +80,10 @@ $(document).ready(function() {
     }
   ];
 
-  const $errorContainer = $("#errorContainer");
-  $errorContainer.hide();
-
+  //Function to validate length of tweet and return appropriate error message
   const validation = function(tweet) {
+    const $errorContainer = $("#errorContainer");
+    $errorContainer.hide();
     if (!tweet) {
       const errorMessage = "Error: Must compose a tweet";
       $errorContainer.text(errorMessage);
