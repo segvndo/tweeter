@@ -122,8 +122,7 @@ $(document).ready(function() {
         console.log(error);
       });
     }
-    //Optional code below for personal use if text box is desired to be empty post-error message
-    // $(this).trigger("reset");
+    $(this).trigger("reset");
   });
 
 
