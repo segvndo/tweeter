@@ -110,21 +110,19 @@ $(document).ready(function() {
     
     const formData = $(this).serializeArray();
 
-
     if (validation(formData[0].value)) {
       $.post('/tweets', formData)
       .then(function(response) {
         console.log(response);
         loadTweets();
         $(".counter").text(140);
+        $(this).trigger("reset");
       })
       .catch(function(error) {
         console.log(error);
       });
     }
-    $(this).trigger("reset");
   });
-
 
   const loadTweets = function() {
     $.getJSON("/tweets")
